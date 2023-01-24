@@ -24,7 +24,7 @@ data "yandex_vpc_subnet" "default_b" {
   name = "subnet"
 }
 resource "yandex_compute_instance" "vm1" {
-  #  name = "vm-ubuntu-${terraform.workspace}-${count.index}"
+  name = "vm-ubuntu-${terraform.workspace}-${count.index}"
   count = local.instance_count[terraform.workspace]
   resources {
     core_fraction = local.instance_core_frac[terraform.workspace] # Гарантированная доля vCPU
